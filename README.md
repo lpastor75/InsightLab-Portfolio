@@ -26,7 +26,8 @@ Git
 
 ## 📊 Featured Projects
 
-- [Formula 1 Performance Analytics](Formula1-Performance-Analytics/)
+- [Formula 1 performance analytics](Formula1-Performance-Analytics/)
+- [Movie data enrichment pipeline](Movie-data-enrichment-pipeline/)
 
 ## 🔬 Technical Focus
 
