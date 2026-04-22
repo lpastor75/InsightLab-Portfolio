@@ -17,6 +17,10 @@ El objetivo es transformar datos de clientes en información accionable para apo
 ---
 
 ## 📁 Estructura del proyecto
+
+## 📁 Estructura del proyecto
+
+```bash
 CLV-segmentation/
 │
 ├── data/                          # Raw dataset
@@ -24,8 +28,8 @@ CLV-segmentation/
 ├── clv_segmentation.ipynb         # Main analysis notebook
 ├── README.md                      # Project documentation
 └── requirements.txt               # Dependencies
+```
 
----
 
 ## 📦 Datasets
 
@@ -128,6 +132,6 @@ Se identifican perfiles diferenciados de clientes:
 
 ## 👨‍💻 Autor
 
-Luis Pastor Nuevo
+**Luis Pastor Nuevo**
 
 Proyecto de portfolio en Data Science & Machine Learning enfocado en problemas reales de negocio: predicción de valor del cliente y segmentación para marketing.
