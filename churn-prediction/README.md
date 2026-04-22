@@ -22,18 +22,43 @@ Este proyecto desarrolla un modelo predictivo capaz de identificar clientes con 
 
 ---
 
-## 🧠 Dataset
+## 📊 Data Source
 
-* Dataset: **Telco Customer Churn**
-* Fuente: IBM / Kaggle
-* Contiene información sobre:
+El dataset utilizado en este proyecto corresponde al **Telco Customer Churn**, ampliamente utilizado en problemas de analítica predictiva para modelar el abandono de clientes en el sector de telecomunicaciones.
 
-  * Datos demográficos
-  * Servicios contratados
-  * Tipo de contrato
-  * Facturación
-  * Antigüedad del cliente
+Este conjunto de datos fue proporcionado originalmente por :contentReference[oaicite:0]{index=0} como parte de los datos de ejemplo de su plataforma Cognos Analytics.
 
+🔗 **Fuente oficial (IBM):**  
+https://www.ibm.com/docs/en/cognos-analytics/11.2.x?topic=samples-telco-customer-churn
+
+Para facilitar su uso en entornos de desarrollo y aprendizaje, existe una versión pública accesible a través de Kaggle, que mantiene la misma estructura y variables que el dataset original.
+
+---
+
+### 🧾 Descripción del dataset
+
+El dataset contiene información detallada sobre clientes de una empresa de telecomunicaciones, incluyendo:
+
+- Datos demográficos del cliente  
+- Servicios contratados  
+- Tipo y duración del contrato  
+- Información de facturación  
+- Historial de permanencia  
+
+La variable objetivo es **`Churn`**, que indica si el cliente ha abandonado el servicio (*Yes*) o continúa activo (*No*).
+
+---
+
+### 🎯 Aplicación en el proyecto
+
+Este dataset permite abordar un problema clásico de **clasificación binaria**, cuyo objetivo es predecir la probabilidad de abandono de un cliente.
+
+Los resultados del modelo pueden ser utilizados para:
+
+- Identificar clientes con alto riesgo de churn  
+- Diseñar estrategias de retención personalizadas  
+- Optimizar campañas de fidelización  
+- Reducir costes asociados a la pérdida de clientes
 ---
 
 ## 🔍 Análisis exploratorio (EDA)
