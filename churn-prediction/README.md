@@ -151,14 +151,15 @@ Optimización mediante:
 
 ## 📁 Estructura del proyecto
 
-## 📁 Estructura del proyecto
-
-├── data/
-├── churn_prediction.ipynb
-├── README.md
-└── requirements.txt
-
----
+```bash
+churn-prediction/
+│
+├── data/                          # Raw dataset
+│
+├── churn_prediction.ipynb         # Main analysis notebook
+├── README.md                      # Project documentation
+└── requirements.txt               # Dependencies
+```
 
 ## ▶️ Cómo ejecutar el proyecto
 
