@@ -30,6 +30,7 @@ Git
 - [Movie data enrichment pipeline](Movie-data-enrichment-pipeline/)
 - [Churn prediction](Churn-prediction/)
 - [CLV segmentation](CLV-segmentation/)
+- [House prices ML](House-prices-ml-pipeline/)
 
 ## 🔬 Technical Focus
 

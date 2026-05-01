@@ -18,8 +18,6 @@ El objetivo es transformar datos de clientes en información accionable para apo
 
 ## 📁 Estructura del proyecto
 
-## 📁 Estructura del proyecto
-
 ```bash
 CLV-segmentation/
 │
