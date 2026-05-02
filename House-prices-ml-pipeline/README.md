@@ -28,7 +28,7 @@ house-prices-ml/
 ├── requirements.txt
 ├── README.md
 └── report.pdf (opcional)
-
+```
 
 ---
 
