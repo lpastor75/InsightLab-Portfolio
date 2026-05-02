@@ -14,7 +14,7 @@ Incluye:
 ---
 
 ## 📁 Estructura del proyecto
-
+```plaintext
 house-prices-ml/
 │
 ├── data/
@@ -130,37 +130,43 @@ cd house-prices-ml
 ```
 
 ### 2. Crear entorno virtual (opcional pero recomendado)
-
+```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
+```
 
 ### 3. Instalar dependencias
-
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Ejecutar notebooks
 
 Abrir Jupyter:
-
+```bash
 jupyter notebook
-
+```
 Y ejecutar en orden:
-
+```bash
 01_data_preparation.ipynb
 02_modeling_analysis.ipynb
+```
 
 
-📦 Dependencias
-
+## 📦 Dependencias
+```bash
 Ver requirements.txt
+```
 
-📌 Dataset
+## 📌 Dataset
 
 Kaggle: House Prices — Advanced Regression Techniques
+```bash
 https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques
+```
 
-👨‍💻 Autor
+## 👨‍💻 Autor
 
 **Luis Pastor Nuevo**
 
