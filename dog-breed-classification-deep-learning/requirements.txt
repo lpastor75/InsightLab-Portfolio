@@ -1,0 +1,9 @@
+tensorflow
+autokeras
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+pillow
+huggingface_hub
