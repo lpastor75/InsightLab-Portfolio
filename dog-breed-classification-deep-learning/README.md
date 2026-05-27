@@ -60,7 +60,6 @@ dog-breed-classification/
     ├── class_distribution.png
     ├── confusion_matrix.png
     ├── training_curves.png
-    └── sample_images.png
 ```
 
 ## 🔬 Pipeline del proyecto
