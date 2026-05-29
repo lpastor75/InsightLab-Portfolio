@@ -31,8 +31,8 @@ Git
 - [Churn prediction](Churn-prediction/)
 - [CLV segmentation](CLV-segmentation/)
 - [House prices ML](House-prices-ml-pipeline/)
-- [Dog breed classification](Dog-breed-classification-deep-learning/)
-- [Digit recognizer](Digit-recognizer-deep-learning/)
+- [Dog breed classification](dog-breed-classification-deep-learning/)
+- [Digit recognizer](digit-recognizer-deep-learning/)
 
 ## 🔬 Technical Focus
 
