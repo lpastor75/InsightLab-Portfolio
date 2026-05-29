@@ -32,6 +32,7 @@ Git
 - [CLV segmentation](CLV-segmentation/)
 - [House prices ML](House-prices-ml-pipeline/)
 - [Dog breed classification](Dog-breed-classification-deep-learning/)
+- [Digit recognizer](Digit-recognizer-deep-learning/)
 
 ## 🔬 Technical Focus
 
