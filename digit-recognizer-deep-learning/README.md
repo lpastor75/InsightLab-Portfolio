@@ -107,21 +107,13 @@ Este resultado confirma que el Transfer Learning no siempre es la mejor opción 
 
 # 📈 Resultados
 
-| Modelo | Mejor Validation Accuracy |
-|----------|----------|
-| CNN Base | XX.XX% |
-| CNN Mejorada | XX.XX% |
-| MobileNetV2 | XX.XX% |
-
----
-
 ## Comparativa visual
 
 ![Model Comparison](images/model_comparison.png)
 
 ---
 
-## Curvas de entrenamiento
+## Curvas de entrenamiento (CNN mejorada)
 
 ![Training Curves](images/training_curves.png)
 
