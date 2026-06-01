@@ -91,7 +91,7 @@ La API de TMDb se utiliza para enriquecer los datos con información adicional:
 Clonar el repositorio:
 
 ```
-git clone https://github.com/tuusuario/movie-data-pipeline.git
+git clone https://github.com/lpastor75/movie-data-pipeline.git
 cd movie-data-pipeline
 ```
 

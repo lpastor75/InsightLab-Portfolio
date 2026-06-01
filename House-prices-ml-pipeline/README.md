@@ -125,7 +125,7 @@ Permite identificar grupos de viviendas con características similares.
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tuusuario/house-prices-ml.git
+git clone https://github.com/lpastor75/house-prices-ml.git
 cd house-prices-ml
 ```
 
