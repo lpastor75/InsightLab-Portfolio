@@ -33,6 +33,7 @@ Git
 - [House prices ML](House-prices-ml-pipeline/)
 - [Dog breed classification](dog-breed-classification-deep-learning/)
 - [Digit recognizer](digit-recognizer-deep-learning/)
+- [Electric demand](electric-demand-spain/)
 
 ## 🔬 Technical Focus
 
