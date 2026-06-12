@@ -217,8 +217,13 @@ jupyter notebook 02_energy_demand_forecasting.ipynb
 ├── requirements.txt
 ├── images/
 │   ├── architecture_overview.png
+│   ├── dashboard_apagon_2025.png
+│   ├── demand_timeseries_apagon.png
+│   ├── error_gauge.png
+│   ├── forecasting_pipeline_overview.png
+│   ├── forecast_vs_real_apagon.png
+│   ├── gauge_semana_apagon.png
 │   ├── grafana_dashboard_overview.png
-│   ├── forecast_vs_real.png
 │   └── influxdb_query_example.png
 └── README.md
 ```
@@ -284,6 +289,7 @@ Se observa:
 - Utilidad del enfoque basado en series temporales para monitorización operativa.
 
 Este caso refuerza el valor del pipeline no solo como sistema de forecasting, sino como herramienta de **observabilidad energética en tiempo real**.
+
 ---
 
 ## 👤 Autor
