@@ -1,146 +1,183 @@
-# ⚡ Electricidad en España — Pipeline de Ingesta y Análisis de Demanda Energética
+# ⚡ Demanda Eléctrica en España — Pipeline de Datos + Forecasting (REE + InfluxDB + ML)
 
 ## 📌 Descripción del proyecto
 
-Este proyecto implementa un pipeline completo de **ingesta, almacenamiento y análisis de datos de demanda eléctrica en España**, utilizando la API pública de Red Eléctrica Española (REE) y una base de datos de series temporales en InfluxDB.
+Este proyecto implementa un sistema completo de **ingesta de datos, almacenamiento en series temporales y predicción de demanda eléctrica en España**, utilizando datos públicos de la Red Eléctrica Española (REE).
 
-El objetivo es simular un entorno real de ingeniería de datos, donde los datos se ingieren de forma continua, se almacenan en una base de datos temporal y se preparan para su análisis y visualización.
+El objetivo es construir una arquitectura realista de ingeniería de datos que incluya:
+
+- Ingesta automática de datos energéticos
+- Almacenamiento en base de datos de series temporales (InfluxDB)
+- Pipeline de backfill histórico (2022 → actualidad)
+- Modelo de predicción de demanda eléctrica
+- Publicación de predicciones en InfluxDB
+- Visualización en dashboards (Grafana)
 
 ---
 
 ## 🏗️ Arquitectura del sistema
 
-![Arquitectura del pipeline](images/architecture.png)
+### 🔷 Pipeline completo (ingesta + almacenamiento + visualización)
+
+Este diagrama muestra la arquitectura end-to-end del sistema, desde la ingesta de datos hasta su visualización en dashboards.
+
+![Arquitectura general del sistema](images/architecture_overview.png)
 
 ---
 
-## 🧹 Procesamiento de datos
+### 🔶 Pipeline de forecasting (modelo predictivo)
 
-Los datos se transforman para:
+Este segundo diagrama detalla exclusivamente la capa de machine learning encargada de la predicción de demanda eléctrica.
 
-- Normalización de timestamps a UTC
-- Agregación horaria de la serie temporal
-- Estructuración en formato tabular
+Incluye:
 
-Variables finales:
+- Preparación de datos desde InfluxDB
+- Generación de features (lags temporales)
+- Entrenamiento del modelo de forecasting
+- Generación de predicciones horarias
+- Escritura de `ForecastDemand` en InfluxDB
+- Consumo de resultados en Grafana
 
-- `RealDemand` → consumo eléctrico real
-- `ForecastDemand` → predicción oficial de REE
+![Pipeline de forecasting](images/forecasting_pipeline_overview.png)
 
----
-
-## 💾 Almacenamiento
-
-Se utiliza **InfluxDB** como base de datos de series temporales.
-
-- Measurement: `demand`
-- Fields:
-  - `RealDemand`
-  - `ForecastDemand`
-
-Esto permite consultas eficientes sobre series temporales y visualización en dashboards.
+Este pipeline se ejecuta de forma incremental y permite generar predicciones horarias en tiempo casi real.
 
 ---
 
-## 🔁 Pipeline de ingesta
+## 🔄 Arquitectura general del pipeline
 
-El sistema implementa un pipeline incremental con las siguientes características:
+El sistema se divide en dos bloques principales:
 
-- Detecta automáticamente el último timestamp almacenado en InfluxDB
-- Reanuda la ingesta desde ese punto
-- Evita reprocesamiento de datos ya almacenados
-- Permite ejecución continua (modo streaming batch)
+### 1. Pipeline de ingesta (Notebook 1)
+
+Se encarga de:
+
+- Extracción de datos desde la API de REE
+- Limpieza y normalización de timestamps
+- Almacenamiento en InfluxDB
+- Backfill completo (histórico desde 2022)
+- Evitar duplicados mediante control de timestamps
 
 ---
 
-## 📈 Visualización
+### 2. Pipeline de forecasting (Notebook 2)
 
-Los datos pueden analizarse mediante dashboards en InfluxDB:
+Se encarga de:
 
-- Serie temporal de demanda eléctrica
+- Lectura de datos desde InfluxDB
+- Preparación de variables temporales (lags)
+- Entrenamiento de modelo de machine learning
+- Generación de predicciones horarias
+- Publicación de resultados en InfluxDB
+
+---
+
+## 💾 Almacenamiento de datos (InfluxDB)
+
+Se utiliza InfluxDB como base de datos de series temporales.
+
+### Measurement principal:
+
+- `demand`
+
+### Campos:
+
+| Campo          | Descripción                  |
+|----------------|------------------------------|
+| RealDemand     | Demanda eléctrica real       |
+| ForecastDemand | Predicción del modelo        |
+
+---
+
+## 🧠 Sistema de predicción (Notebook 2)
+
+### Modelo utilizado
+
+- Algoritmo: `RandomForestRegressor`
+- Variables de entrada:
+  - `lag_1`  → valor de la hora anterior
+  - `lag_24` → valor de la misma hora del día anterior
+
+### Salida del modelo
+
+- Predicción de demanda horaria
+
+### Horizontes de predicción
+
+- 24 horas (operación diaria)
+- 7 días (planificación semanal)
+
+---
+
+## 🔁 Pipeline de backfill
+
+El sistema permite:
+
+- Detectar automáticamente el último dato almacenado
+- Continuar la ingesta desde ese punto
+- Evitar duplicación de datos
+- Ejecutar backfill completo desde 2022
+
+Esto garantiza integridad total de la serie temporal.
+
+---
+
+## 📊 Visualización en Grafana
+
+El sistema está diseñado para integrarse con **Grafana conectado a InfluxDB**.
+
+### Capacidades del dashboard:
+
+- Monitorización en tiempo real de la demanda
 - Comparación entre demanda real y predicción
-- Análisis por días o rangos temporales
-- Métricas derivadas como error entre predicción y realidad
+- Análisis de patrones temporales
+- Detección visual de desviaciones del modelo
+
+![Dashboard Grafana](images/grafana_dashboard_overview.png)
 
 ---
 
-## 📊 Resultados
+## 📈 Comparación: Real vs Predicción
 
-Una vez completada la ingesta, los datos quedan almacenados en InfluxDB y pueden ser consultados y monitorizados mediante dashboards de series temporales.
 
-Las siguientes visualizaciones corresponden al evento de interrupción eléctrica que afectó a gran parte de España el **28 de abril de 2025**.
-
-Este evento constituye un caso de especial interés desde el punto de vista analítico, ya que permite observar una alteración significativa en los patrones habituales de demanda eléctrica y validar la capacidad del pipeline para capturar eventos operacionales relevantes en tiempo real.
-
-### Dashboard de monitorización
-
-Vista general del dashboard construido sobre InfluxDB para la supervisión de la demanda eléctrica española.
-
-![Dashboard InfluxDB](images/dashboard_apagon_2025.png)
+![Comparación forecast vs real](images/forecast_vs_real.png)
 
 ---
 
-### Evolución de la demanda eléctrica
+## ⚙️ Características principales
 
-Serie temporal de demanda eléctrica durante el periodo analizado. Puede apreciarse la alteración del comportamiento habitual asociada al evento del 28 de abril de 2025.
-
-![Serie temporal de demanda eléctrica](images/demand_timeseries_apagon.png)
-
----
-
-### Comparación entre demanda real y demanda prevista
-
-Comparativa entre la demanda registrada y la demanda pronosticada por Red Eléctrica de España (REE).
-
-![Forecast vs Real Demand](images/forecast_vs_real_apagon.png)
+- Pipeline completo de datos de energía
+- Arquitectura tipo producción
+- Modelo de machine learning para forecasting
+- Backfill automático y seguro
+- Integración con base de datos de series temporales
+- Visualización en dashboards profesionales
 
 ---
 
-### Indicador de error de predicción
+## 🧪 Evaluación del modelo
 
-Métrica calculada a partir de la diferencia entre la demanda real y la demanda prevista, utilizada para monitorizar el comportamiento del sistema de predicción.
+El rendimiento del modelo se evalúa mediante:
 
-![Error Gauge](images/error_gauge.png)
+- MAE (Error Absoluto Medio)
+- Validación mediante ventanas temporales (rolling windows)
 
----
-
-### Observaciones
-
-El evento de interrupción eléctrica registrado en España el **28 de abril de 2025** aparece reflejado en la serie temporal mediante una caída significativa de la demanda.
-
-Este caso permite ilustrar cómo una arquitectura basada en series temporales puede utilizarse para:
-
-- Monitorización energética en tiempo real.
-- Detección de anomalías.
-- Análisis de eventos operacionales.
-- Desarrollo de modelos de forecasting.
-- Construcción de cuadros de mando para observabilidad de sistemas energéticos.
+Esto permite medir la estabilidad del modelo en distintos periodos.
 
 ---
 
-## 🧠 Tecnologías utilizadas
+## 🧰 Tecnologías utilizadas
 
 - Python
-- Pandas
-- Requests
-- InfluxDB Cloud / OSS
+- Pandas / NumPy
+- Scikit-learn
+- InfluxDB (base de datos de series temporales)
 - Flux Query Language
-- Matplotlib (exploración)
-- Jupyter Notebook
+- Grafana
+- Matplotlib (solo exploración)
+- Jupyter Notebooks
 
 ---
-
-## ⚙️ Configuración
-
-El proyecto utiliza variables de entorno para almacenar credenciales de acceso a InfluxDB.
-
-Crear un archivo `.env` con la siguiente estructura:
-
-```env
-INFLUX_TOKEN=your_influxdb_token
-```
-
-Por seguridad, este archivo no debe subirse al repositorio.
 
 ## 🚀 Cómo ejecutar el proyecto
 
@@ -152,42 +189,121 @@ pip install -r requirements.txt
 
 ### 2. Configurar variables de entorno
 
+Crear un archivo .env:
+
+INFLUX_TOKEN=tu_token
+INFLUX_URL=tu_url
+INFLUX_ORG=tu_org
+INFLUX_BUCKET=tu_bucket
+
+### 3. Ejecutar pipeline de ingesta
+
 ```bash
-INFLUX_TOKEN=your_token_here
+jupyter notebook 01_data_ingestion_electric_demand.ipynb
 ```
 
-### 3. Ejecutar Jupyter Notebook
+### 4. Ejecutar pipeline de forecasting
 
 ```bash
-jupyter notebook
+jupyter notebook 02_energy_demand_forecasting.ipynb
 ```
 
-## 📌 Resultado final
+## 📁 Estructura del proyecto
 
-Este proyecto permite:
+```text
+.
+├── ingestion_pipeline.ipynb
+├── energy_demand_forecasting.ipynb
+├── requirements.txt
+├── images/
+│   ├── architecture_overview.png
+│   ├── grafana_dashboard_overview.png
+│   ├── forecast_vs_real.png
+│   └── influxdb_query_example.png
+└── README.md
+```
 
-- Ingesta automatizada de datos energéticos desde la API de Red Eléctrica Española (REE)
-- Almacenamiento en una base de datos de series temporales (InfluxDB)
-- Reanudación incremental del pipeline directamente desde la base de datos
-- Visualización del consumo eléctrico real en España en tiempo casi real
-- Comparación entre demanda real (`RealDemand`) y predicción oficial (`ForecastDemand`)
-- Análisis temporal de la evolución de la demanda eléctrica
+---
 
+## ⚡ Caso de estudio: apagón eléctrico (28/04/2025)
+
+Este conjunto de visualizaciones muestra el comportamiento del sistema de monitorización y forecasting durante un evento real de alta relevancia operativa: la interrupción eléctrica que afectó a gran parte de España el 28 de abril de 2025.
+
+Este caso se utiliza como **validación histórica del pipeline de datos**, permitiendo analizar cómo el sistema captura anomalías en la demanda eléctrica y cómo se comportan las predicciones frente a eventos extremos.
+
+---
+
+### 📊 Dashboard de monitorización (InfluxDB)
+
+Vista general del comportamiento del sistema durante el evento.
+
+![Dashboard de monitorización](images/dashboard_apagon_2025.png)
+
+---
+
+### 📉 Evolución de la demanda eléctrica
+
+Serie temporal de la demanda real durante el periodo del evento, donde se observa una caída significativa respecto al patrón habitual.
+
+![Serie temporal de demanda](images/demand_timeseries_apagon.png)
+
+---
+
+### 📊 Comparación entre demanda real y predicción
+
+Comparativa entre la demanda observada y la predicción oficial del sistema (ForecastDemand vs RealDemand).
+
+![Forecast vs Real](images/forecast_vs_real_apagon.png)
+
+---
+
+### ⚠️ Error de predicción
+
+Visualización del error entre demanda real y prevista, utilizada para evaluar la calidad del modelo durante eventos anómalos.
+
+![Error del modelo](images/error_gauge.png)
+
+---
+
+### 📈 Indicador agregado de error
+
+Métrica agregada utilizada para monitorizar el rendimiento global del sistema de forecasting durante el evento.
+
+![Gauge semanal](images/gauge_semana_apagon.png)
+
+---
+
+### 🧠 Observaciones
+
+El evento del 28/04/2025 permite validar el comportamiento del sistema en condiciones no estacionarias.
+
+Se observa:
+
+- Desviación significativa entre predicción y realidad durante el evento.
+- Capacidad del sistema para seguir capturando patrones generales tras la anomalía.
+- Utilidad del enfoque basado en series temporales para monitorización operativa.
+
+Este caso refuerza el valor del pipeline no solo como sistema de forecasting, sino como herramienta de **observabilidad energética en tiempo real**.
 ---
 
 ## 👤 Autor
 
 **Luis Pastor Nuevo**
 
-Data Analyst | Data Scientist | Data Engineer
+Analista de Datos | Data Engineer | Data Scientist
 
-Proyecto orientado al diseño de pipelines de datos, almacenamiento de series temporales y analítica aplicada sobre datos energéticos.
+Especializado en:
+
+- Sistemas de series temporales
+- Pipelines de datos en energía
+- Modelos de forecasting
+- Arquitecturas con InfluxDB + Grafana
+
 ---
 
 ## 📄 Licencia
 
-Este repositorio se comparte con fines demostrativos y de portfolio profesional.
+Este proyecto se publica con fines educativos y de portfolio profesional.
 
-El código y la documentación pueden utilizarse como referencia educativa o técnica.
+El código puede utilizarse como referencia técnica o base de aprendizaje.
 
-No se ofrece ninguna garantía sobre su adecuación para entornos productivos.
