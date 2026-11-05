@@ -28,7 +28,7 @@ Git
 
 - [Formula 1 performance analytics](Formula1-Performance-Analytics/)
 - [Movie data enrichment pipeline](Movie-data-enrichment-pipeline/)
-- [Churn prediction](Churn-prediction/)
+- [Churn prediction]churn-prediction/)
 - [CLV segmentation](CLV-segmentation/)
 - [House prices ML](House-prices-ml-pipeline/)
 - [Dog breed classification](dog-breed-classification-deep-learning/)
