@@ -29,15 +29,15 @@ Este repositorio reúne una selección de mis proyectos prácticos en **ingenier
 | Proyecto | Descripción |
 |---|---|
 | [Electric Demand Spain](./electric-demand-spain/) | Pipeline de ingestión de datos de demanda eléctrica, almacenamiento de series temporales, predicción y visualización con Grafana. |
-| [Movie Data Enrichment Pipeline](./movie-data-enrichment-pipeline/) | Integración y enriquecimiento de datos cinematográficos mediante APIs externas y almacenamiento en MongoDB. |
-| [CLV Segmentation](./clv-segmentation/) | Predicción del valor de cliente, análisis RFM y segmentación mediante clustering. |
+| [Movie Data Enrichment Pipeline](./Movie-data-enrichment-pipeline/) | Integración y enriquecimiento de datos cinematográficos mediante APIs externas y almacenamiento en MongoDB. |
+| [CLV Segmentation](./CLV-segmentation/) | Predicción del valor de cliente, análisis RFM y segmentación mediante clustering. |
 
 ### Otros proyectos
 
 | Proyecto | Descripción |
 |---|---|
-| [Formula 1 Performance Analytics](./formula1-performance-analytics/) | Análisis exploratorio de datos históricos de Fórmula 1, identificación de tendencias y visualización de resultados. |
-| [House Prices ML Pipeline](./house-prices-ml-pipeline/) | Preparación de datos, ingeniería de características, entrenamiento y evaluación de modelos de regresión. |
+| [Formula 1 Performance Analytics](./Formula1-Performance-Analytics/) | Análisis exploratorio de datos históricos de Fórmula 1, identificación de tendencias y visualización de resultados. |
+| [House Prices ML Pipeline](./House-prices-ml-pipeline/) | Preparación de datos, ingeniería de características, entrenamiento y evaluación de modelos de regresión. |
 | [Churn Prediction](./churn-prediction/) | Modelado predictivo para identificar clientes con riesgo de abandono. |
 | [Deep Learning: Digit Recognizer](./digit-recognizer-deep-learning/) | Clasificación de imágenes de dígitos manuscritos mediante redes neuronales. |
 | [Deep Learning: Dog Breed Classification](./dog-breed-classification-deep-learning/) | Clasificación de razas de perros mediante técnicas de aprendizaje profundo.
