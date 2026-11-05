@@ -1,49 +1,55 @@
-## 👨‍💻 About Me
+# Luis Pastor | Cloud & Data Engineering
 
-Profesional interesado en el análisis de datos y las soluciones cloud, con experiencia en el desarrollo de proyectos prácticos de Python y arquitectura básica en la nube.
+### Ingeniero en Tecnologías de la Información | AWS | Data Engineering
 
-Me gusta aplicar técnicas de análisis y procesamiento de datos para obtener insights útiles y diseñar soluciones orientadas a escenarios reales, especialmente en el contexto tecnológico del mercado de España.
+Ingeniero en Tecnologías de la Información por la UNED, galardonado con el **Premio del Consejo Social a la Excelencia Académica** por el mejor expediente de su promoción.
 
-## ☁️ Cloud & Data Stack
+Máster en Ciencia de Datos e Ingeniería de Datos en la Nube por la Universidad de Castilla-La Mancha y formación de posgrado en tecnologías Cloud.
 
-Tecnologías:
+Este repositorio reúne una selección de mis proyectos prácticos en **ingeniería de datos, cloud computing, procesamiento de información y machine learning**. En ellos trabajo con la construcción de pipelines de datos, integración de fuentes, análisis y modelado, así como con arquitecturas serverless desplegadas en AWS.
 
-Python
+## Áreas de trabajo
 
-Pandas
+- **Cloud Engineering:** arquitecturas serverless, servicios AWS, despliegue de aplicaciones y automatización.
+- **Data Engineering:** ingestión, transformación, integración y almacenamiento de datos procedentes de distintas fuentes.
+- **Data Science & Machine Learning:** análisis exploratorio, ingeniería de características, modelado predictivo y evaluación de modelos.
 
-Matplotlib
+##  💻 Tecnologías
 
-AWS Lambda
+**Lenguajes y análisis:** Python, SQL, Pandas, NumPy, Scikit-learn.
 
-S3
+**Cloud y desarrollo:** AWS, Lambda, S3, API Gateway, DynamoDB, Git, GitHub Actions.
 
-API Gateway
+**Bases de datos y visualización:** MongoDB, InfluxDB, Grafana.
 
-Dynamo DB
+## 📊 Proyectos
 
-Git
+### Proyectos destacados
 
-## 📊 Featured Projects
+| Proyecto | Descripción |
+|---|---|
+| [Electric Demand Spain](./electric-demand-spain/) | Pipeline de ingestión de datos de demanda eléctrica, almacenamiento de series temporales, predicción y visualización con Grafana. |
+| [Movie Data Enrichment Pipeline](./movie-data-enrichment-pipeline/) | Integración y enriquecimiento de datos cinematográficos mediante APIs externas y almacenamiento en MongoDB. |
+| [CLV Segmentation](./clv-segmentation/) | Predicción del valor de cliente, análisis RFM y segmentación mediante clustering. |
 
-- [Formula 1 performance analytics](Formula1-Performance-Analytics/)
-- [Movie data enrichment pipeline](Movie-data-enrichment-pipeline/)
-- [Churn prediction](churn-prediction/)
-- [CLV segmentation](CLV-segmentation/)
-- [House prices ML](House-prices-ml-pipeline/)
-- [Dog breed classification](dog-breed-classification-deep-learning/)
-- [Digit recognizer](digit-recognizer-deep-learning/)
-- [Electric demand](electric-demand-spain/)
+### Otros proyectos
 
-## 🔬 Technical Focus
+| Proyecto | Descripción |
+|---|---|
+| [Formula 1 Performance Analytics](./formula1-performance-analytics/) | Análisis exploratorio de datos históricos de Fórmula 1, identificación de tendencias y visualización de resultados. |
+| [House Prices ML Pipeline](./house-prices-ml-pipeline/) | Preparación de datos, ingeniería de características, entrenamiento y evaluación de modelos de regresión. |
+| [Churn Prediction](./churn-prediction/) | Modelado predictivo para identificar clientes con riesgo de abandono. |
+| [Deep Learning: Digit Recognizer](./digit-recognizer-deep-learning/) | Clasificación de imágenes de dígitos manuscritos mediante redes neuronales. |
+| [Deep Learning: Dog Breed Classification](./dog-breed-classification-deep-learning/) | Clasificación de razas de perros mediante técnicas de aprendizaje profundo.
 
-* Análisis de datos aplicado utilizando Python y librerías como Pandas, NumPy y herramientas de visualización
-* Procesamiento y transformación de datos para extracción de insights y apoyo a la toma de decisiones
-* Desarrollo de pipelines analíticos y soluciones cloud utilizando servicios de Amazon Web Services
-* Diseño e implementación de proyectos orientados a escenarios reales del mercado tecnológico en España
-* Uso de Git y buenas prácticas de desarrollo para control de versiones y colaboración en proyectos
+## ☁️ Otros proyectos Cloud y AWS 
 
-## 📬 Contact
+Proyectos independientes que complementan mi portfolio de ingeniería de datos y muestran mi experiencia práctica con servicios cloud y arquitecturas serverless.
 
-https://luispastor.dev  
-https://github.com/lpastor75
+- **[Cloud Resume Challenge](https://github.com/lpastor75/cloud-resume):** aplicación web serverless desplegada en AWS, con S3, CloudFront, Lambda, API Gateway y DynamoDB. Incluye automatización del despliegue mediante GitHub Actions.
+- **[Tag Cloud](https://github.com/lpastor75/tag-cloud):** aplicación cloud para el procesamiento de imágenes bajo demanda, utilizando servicios de AWS y una arquitectura serverless.
+
+## 📬 Contacto y portfolio
+
+- **Web:** https://luispastor.dev
+- **GitHub:** https://github.com/lpastor75
