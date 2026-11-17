@@ -16,11 +16,11 @@ Este repositorio reúne una selección de mis proyectos prácticos en **ingenier
 
 ##  💻 Tecnologías
 
-**Lenguajes y análisis:** Python, SQL, Pandas, NumPy, Scikit-learn.
+**Lenguajes y análisis:** Python, SQL, Pandas, Apache Spark (PySpark), Scikit-learn.
 
 **Cloud y desarrollo:** AWS, Lambda, S3, API Gateway, DynamoDB, Git, GitHub Actions.
 
-**Bases de datos y visualización:** MongoDB, InfluxDB, Grafana.
+**Bases de datos y visualización:** InfluxDB, MongoDB, Grafana, Amazon QuickSight.
 
 ## 📊 Proyectos
 
