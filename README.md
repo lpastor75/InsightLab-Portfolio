@@ -30,6 +30,7 @@ Este repositorio reúne una selección de mis proyectos prácticos en **ingenier
 |---|---|
 | [Electric Demand Spain](./electric-demand-spain/) | Pipeline de ingestión de datos de demanda eléctrica, almacenamiento de series temporales, predicción y visualización con Grafana. |
 | [Movie Data Enrichment Pipeline](./Movie-data-enrichment-pipeline/) | Integración y enriquecimiento de datos cinematográficos mediante APIs externas y almacenamiento en MongoDB. |
+| [Amazon Reviews Data Pipeline](./Amazon-Reviews-Data-Pipeline/) | Procesamiento distribuido de reseñas de Amazon mediante Apache Spark y AWS, con entrenamiento de modelos de clasificación e integración de análisis de sentimiento en flujos de eventos. |
 | [CLV Segmentation](./CLV-segmentation/) | Predicción del valor de cliente, análisis RFM y segmentación mediante clustering. |
 
 ### Otros proyectos

@@ -1,0 +1,15 @@
+# Datos
+data/
+*.tsv
+*.tsv.gz
+
+# Entornos
+.venv/
+venv/
+__pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Archivos temporales
+*.log
